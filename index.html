@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #149ddd;
+            --secondary-color: #f5f8fd;
+            --text-dark: #173b6c;
+            --text-light: #272829;
+            --bg-dark: #040b14;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-dark);
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .profile {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 8px solid #2c2f3f;
+            margin-bottom: 15px;
+        }
+
+        .profile h1 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            font-size: 18px;
+            display: inline-block;
+            background: #212431;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            margin: 0 4px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        nav {
+            padding: 30px 0;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            padding: 0;
+        }
+
+        nav ul li a {
+            display: flex;
+            align-items: center;
+            padding: 12px 30px;
+            color: #a8a9b4;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #fff;
+        }
+
+        nav ul li a i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-nav-toggle {
+            display: none;
+            position: fixed;
+            right: 15px;
+            top: 15px;
+            z-index: 9998;
+            border: 0;
+            background: var(--primary-color);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 280px;
+        }
+
+        section {
+            padding: 60px 50px;
+        }
+
+        .section-title {
+            padding-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Hero Section */
+        #hero {
+            width: 100%;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920') center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        #hero::before {
+            content: "";
+            background: rgba(5, 13, 24, 0.3);
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            min-width: 300px;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .hero-container h1 {
+            margin: 0 0 10px 0;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 56px;
+        }
+
+        .hero-container p {
+            color: #fff;
+            margin-bottom: 50px;
+            font-size: 26px;
+        }
+
+        .hero-container p span {
+            color: var(--primary-color);
+            padding-bottom: 4px;
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-info h3 {
+            font-size: 26px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-info p {
+            margin-bottom: 15px;
+        }
+
+        .info-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .info-list li {
+            list-style: none;
+            padding: 8px 0;
+        }
+
+        .info-list li strong {
+            color: var(--text-dark);
+        }
+
+        /* Skills Section */
+        .skills-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-item h4 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            background: var(--primary-color);
+            height: 100%;
+            transition: width 1s ease;
+        }
+
+        /* Resume Section */
+        .resume-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .resume-item {
+            padding: 0 0 20px 20px;
+            margin-top: -2px;
+            border-left: 2px solid var(--primary-color);
+            position: relative;
+        }
+
+        .resume-item::before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50px;
+            left: -9px;
+            top: 0;
+            background: #fff;
+            border: 2px solid var(--primary-color);
+        }
+
+        .resume-item h4 {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .resume-item h5 {
+            font-size: 16px;
+            background: #e4edf9;
+            padding: 5px 15px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            background: #fff;
+        }
+
+        .portfolio-info h4 {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .portfolio-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Services Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-box i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-box h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 10px;
+        }
+
+        .info-box i {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #1280c0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin-left: 280px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header {
+                left: -280px;
+            }
+
+            main, footer {
+                margin-left: 0;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            header.mobile-nav-active {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 20px;
+            }
+
+            .hero-container h1 {
+                font-size: 36px;
+                line-height: 36px;
+            }
+
+            .hero-container p {
+                font-size: 20px;
+            }
+
+            .about-content,
+            .resume-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .info-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+
+    <!-- Header/Sidebar -->
+    <header id="header">
+        <div class="profile">
+            <img src="https://via.placeholder.com/120" alt="Profile Picture">
+            <h1>Your Name</h1>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#hero" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-container">
+                <h1>Your Name</h1>
+                <p>I'm a <span>Full Stack Developer</span></p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-title">
+                <h2>About</h2>
+            </div>
+            <div class="about-content">
+                <div>
+                    <img src="https://via.placeholder.com/400x500" alt="About Me">
+                </div>
+                <div class="about-info">
+                    <h3>Full Stack Developer & Designer</h3>
+                    <p>Passionate about crafting efficient software solutions, leading teams, and continuously learning. Adept in full stack development, mobile apps, and automation tools.</p>
+                    <p>I bring over X years of industry experience across startups and enterprises. I've led development of internal platforms, applications, and full-stack projects. I thrive in dynamic environments that foster innovation, collaboration, and growth.</p>
+                    
+                    <ul class="info-list">
+                        <li><strong>Birthday:</strong> 1 January 1990</li>
+                        <li><strong>Age:</strong> 34</li>
+                        <li><strong>Degree:</strong> Bachelor's Degree</li>
+                        <li><strong>Email:</strong> your.email@example.com</li>
+                        <li><strong>Phone:</strong> +1 234 567 8900</li>
+                        <li><strong>City:</strong> Your City, Country</li>
+                        <li><strong>Freelance:</strong> Available</li>
+                        <li><strong>Languages:</strong> English, Spanish</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" style="background: var(--secondary-color);">
+            <div class="section-title">
+                <h2>Skills</h2>
+                <p>Versatile Full Stack Developer with expertise in modern web technologies, backend development, and software tools to deliver robust and scalable solutions.</p>
+            </div>
+            <div class="skills-content">
+                <div>
+                    <div class="skill-item">
+                        <h4>HTML/CSS - 95%</h4>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>JavaScript - 90%</h4>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>React - 85%</h4>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="skill-item">
+                        <h4>Node.js - 88%</h4>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Python - 80%</h4>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Database - 85%</h4>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <div class="section-title">
+                <h2>Resume</h2>
+                <p>Full Stack Developer with experience in modern frameworks. Proven ability to lead teams, develop scalable web applications, and contribute to innovative software solutions.</p>
+            </div>
+            <div class="resume-content">
+                <div>
+                    <h3 style="color: var(--text-dark); margin-bottom: 20px;">Education</h3>
+                    <div class="resume-item">
+                        <h4>Bachelor of Computer Science</h4>
+                        <h5>2018 - 2022</h5>
+                        <p>University Name, Location</p>
+                        <p>Graduated with honors, specializing in software development and engineering principles.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>High School Diploma</h4>
+                        <h5>2016 - 2018</h5>
+                        <p>School Name, Location</p>
+                        <p>Completed with excellent grades in mathematics and sciences.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: var(--text-dark); margin-bottom: 20px;">Professional Experience</h3>
+                    <div class="resume-item">
+                        <h4>Senior Full Stack Developer</h4>
+                        <h5>2023 - Present</h5>
+                        <p><em>Company Name, Location</em></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Led development of multiple full-stack applications</li>
+                            <li>Managed team of 5 developers</li>
+                            <li>Implemented modern CI/CD pipelines</li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Full Stack Developer</h4>
+                        <h5>2020 - 2023</h5>
+                        <p><em>Company Name, Location</em></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Developed responsive web applications</li>
+                            <li>Collaborated with cross-functional teams</li>
+                            <li>Optimized application performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" style="background: var(--secondary-color);">
+            <div class="section-title">
+                <h2>Portfolio</h2>
+                <p>Explore my work showcasing projects in web development, UI/UX design, and full-stack applications.</p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Project 1">
+                    <div class="portfolio-info">
+                        <h4>E-Commerce Platform</h4>
+                        <p>Full stack e-commerce solution with React and Node.js</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400" alt="Project 2">
+                    <div class="portfolio-info">
+                        <h4>Task Management App</h4>
+                        <p>Real-time collaboration tool built with MERN stack</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=400" alt="Project 3">
+                    <div class="portfolio-info">
+                        <h4>Mobile Banking App</h4>
+                        <p>Secure mobile application with React Native</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400" alt="Project 4">
+                    <div class="portfolio-info">
+                        <h4>Social Media Dashboard</h4>
+                        <p>Analytics dashboard with data visualization</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=400" alt="Project 5">
+                    <div class="portfolio-info">
+                        <h4>Healthcare Portal</h4>
+                        <p>Patient management system with appointment scheduling</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400" alt="Project 6">
+                    <div class="portfolio-info">
+                        <h4>Real Estate Website</h4>
+                        <p>Property listing platform with advanced search</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="section-title">
+                <h2>Services</h2>
+                <p>I offer a range of professional services tailored to meet diverse needs. Combining creativity and technical expertise to deliver impactful solutions.</p>
+            </div>
+            <div class="services-container">
+                <div class="service-box">
+                    <i class="fas fa-code"></i>
+                    <h4>Web Development</h4>
+                    <p>Design and develop responsive, user-friendly websites with a focus on functionality and performance.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Mobile Development</h4>
+                    <p>Create native and cross-platform mobile applications for iOS and Android platforms.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-paint-brush"></i>
+                    <h4>UI/UX Design</h4>
+                    <p>Craft user-centered interfaces and experiences for websites and mobile applications.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-search"></i>
+                    <h4>SEO Optimization</h4>
+                    <p>Improve website visibility and ranking through strategic SEO practices and analytics.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Digital Marketing</h4>
+                    <p>Develop comprehensive digital marketing strategies to grow your online presence.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-comments"></i>
+                    <h4>Consultancy</h4>
+                    <p>Provide expert advice on digital strategies, branding, and design to enhance success.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="background: var(--secondary-color);">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Get in touch for tailored solutions to meet your needs.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location:</h4>
+                            <p>Your City, Country</p>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email:</h4>
+                            <p>your.email@example.com</p>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call:</h4>
+                            <p>+1 234 567 8900</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Message" required></textarea>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const header = document.querySelector('#header');
+
+        mobileNavToggle.addEventListener('click', function() {
+            header.classList.toggle('mobile-nav-active');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (header.classList.contains('mobile-nav-active')) {
+                    header.classList.remove('mobile-nav-active');
+                    const icon = mobileNavToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
