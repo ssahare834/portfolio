@@ -1,36 +1,32 @@
-<<<<<<< HEAD
+ Portfolio — Data Science & Machine Learning Projects
 
-# Haura Jilan — Portfolio (React + Tailwind)
+About
+This repository contains example projects and pipelines that demonstrate core skills in data engineering, exploratory data analysis (EDA), machine learning model training and evaluation, and deployment basics.
 
-This is a lightweight React + Vite + Tailwind portfolio template tailored for a Data Science / Product hybrid profile.
+Highlights (Sample Projects)
+1. Customer Churn Prediction — binary classification using tabular data (scikit-learn / XGBoost).
+2. Sales Forecasting — time series forecasting (ARIMA / Prophet / LSTM).
+3. Image Classifier — transfer learning with CNNs (TensorFlow / PyTorch).
+4. NLP Sentiment Analysis — text preprocessing, embeddings, and classifier (spaCy / Hugging Face).
+5. Recommendation System — collaborative filtering and content-based recommendations.
 
-## Features
-- Hero, About, Skills, Projects, Contact sections
-- Mobile responsive layout
-- Easy to extend: add project pages or modals
-- Deployable to Netlify / Vercel / GitHub Pages
+ Tech stack / Languages
+- Python (primary): pandas, numpy, scikit-learn, tensorflow , matplotlib.
+- SQL for data extraction/queries
+- JupyterLab for notebooks
+- Docker for packaging
+- Git & GitHub for version control
 
-## Quickstart (locally)
-1. Install dependencies:
-```bash
-npm install
-```
-2. Run dev server:
-```bash
-npm run dev
-```
-3. Build for production:
-```bash
-npm run build
-```
+ 📁 Projects Included
 
-## Deployment
-- Push the repo to GitHub and deploy with Netlify or Vercel.
-- For Netlify: connect the repository and set build command `npm run build` and publish directory `dist`.
+🔹 1. Data Science & Machine Learning Projects
+These projects demonstrate my capabilities in real-world ML workflows.
 
-## Customize
-- Replace links in `src/components/Hero.jsx`
-- Add project details and repo links in `src/components/Projects.jsx`
-=======
-# portfolio
->>>>>>> 23c1e024a9df72819dddde00c9bbbf5ba2d69656
+📌 Project: Predictive Analytics — House Price Prediction
+Tech Stack: Python, Pandas, NumPy, Scikit-learn, Matplotlib  
+
+Key Tasks:
+- Data Cleaning & Preprocessing  
+- Feature Engineering  
+- Model Training (Linear Regression, Random Forest)  
+- Model Evaluation & Deployment  
