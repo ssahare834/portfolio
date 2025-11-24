@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Haura Jilan — Portfolio (React + Tailwind)
 
@@ -30,3 +31,6 @@ npm run build
 ## Customize
 - Replace links in `src/components/Hero.jsx`
 - Add project details and repo links in `src/components/Projects.jsx`
+=======
+# portfolio
+>>>>>>> 23c1e024a9df72819dddde00c9bbbf5ba2d69656
