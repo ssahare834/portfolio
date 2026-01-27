@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Deployment Workflow</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 1200px;
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Portfolio Deployment Workflow</h1>
+        <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+            <!-- Step 1: Create Files -->
+            <g>
+                <rect x="50" y="50" width="200" height="100" rx="10" fill="#667eea" stroke="#5568d3" stroke-width="3"/>
+                <text x="150" y="90" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Step 1</text>
+                <text x="150" y="115" text-anchor="middle" fill="white" font-size="14">Create Your Files</text>
+                <text x="150" y="135" text-anchor="middle" fill="white" font-size="12">index.html</text>
+            </g>
+
+            <!-- Arrow 1 -->
+            <path d="M 250 100 L 350 100" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+            
+            <!-- Step 2: GitHub -->
+            <g>
+                <rect x="350" y="50" width="200" height="100" rx="10" fill="#24292e" stroke="#1b1f23" stroke-width="3"/>
+                <text x="450" y="90" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Step 2</text>
+                <text x="450" y="115" text-anchor="middle" fill="white" font-size="14">Push to GitHub</text>
+                <circle cx="430" cy="135" r="8" fill="white"/>
+                <circle cx="450" cy="135" r="8" fill="white"/>
+                <circle cx="470" cy="135" r="8" fill="white"/>
+            </g>
+
+            <!-- Arrow 2 -->
+            <path d="M 550 100 L 650 100" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+            <!-- Step 3: Netlify -->
+            <g>
+                <rect x="650" y="50" width="200" height="100" rx="10" fill="#00c7b7" stroke="#00a89c" stroke-width="3"/>
+                <text x="750" y="90" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Step 3</text>
+                <text x="750" y="115" text-anchor="middle" fill="white" font-size="14">Connect Netlify</text>
+                <text x="750" y="135" text-anchor="middle" fill="white" font-size="12">Import from GitHub</text>
+            </g>
+
+            <!-- Arrow 3 down -->
+            <path d="M 750 150 L 750 200" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+            <!-- Step 4: Deploy -->
+            <g>
+                <rect x="650" y="200" width="200" height="100" rx="10" fill="#f6c90e" stroke="#ddb30c" stroke-width="3"/>
+                <text x="750" y="240" text-anchor="middle" fill="#333" font-size="18" font-weight="bold">Step 4</text>
+                <text x="750" y="265" text-anchor="middle" fill="#333" font-size="14">Deploy Site</text>
+                <text x="750" y="285" text-anchor="middle" fill="#333" font-size="12">⚡ Auto-build</text>
+            </g>
+
+            <!-- Arrow 4 down -->
+            <path d="M 750 300 L 750 350" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+            <!-- Step 5: Live -->
+            <g>
+                <rect x="650" y="350" width="200" height="100" rx="10" fill="#00d084" stroke="#00b872" stroke-width="3"/>
+                <text x="750" y="390" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Step 5</text>
+                <text x="750" y="415" text-anchor="middle" fill="white" font-size="14">Site is Live! 🎉</text>
+                <text x="750" y="435" text-anchor="middle" fill="white" font-size="11">yourname.netlify.app</text>
+            </g>
+
+            <!-- Update cycle arrow -->
+            <path d="M 650 400 Q 400 400 400 200 L 400 150" stroke="#ff6b35" stroke-width="3" fill="none" 
+                  stroke-dasharray="5,5" marker-end="url(#arrowhead-orange)"/>
+            
+            <!-- Update label -->
+            <g>
+                <rect x="300" y="300" width="150" height="60" rx="8" fill="#ffe5dc" stroke="#ff6b35" stroke-width="2"/>
+                <text x="375" y="325" text-anchor="middle" fill="#ff6b35" font-size="14" font-weight="bold">Future Updates</text>
+                <text x="375" y="345" text-anchor="middle" fill="#ff6b35" font-size="11">Just push to GitHub</text>
+            </g>
+
+            <!-- Details boxes -->
+            <!-- GitHub details -->
+            <g>
+                <rect x="50" y="250" width="250" height="180" rx="8" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="2"/>
+                <text x="175" y="280" text-anchor="middle" font-size="16" font-weight="bold" fill="#24292e">📦 GitHub Setup</text>
+                
+                <text x="70" y="310" font-size="13" fill="#333">1. Create new repository</text>
+                <text x="70" y="335" font-size="13" fill="#333">2. Name: my-portfolio</text>
+                <text x="70" y="360" font-size="13" fill="#333">3. Make it Public</text>
+                <text x="70" y="385" font-size="13" fill="#333">4. Upload index.html</text>
+                <text x="70" y="410" font-size="13" fill="#333">5. Commit changes ✓</text>
+            </g>
+
+            <!-- Netlify details -->
+            <g>
+                <rect x="50" y="480" width="250" height="180" rx="8" fill="#e6fffc" stroke="#00c7b7" stroke-width="2"/>
+                <text x="175" y="510" text-anchor="middle" font-size="16" font-weight="bold" fill="#00a89c">🌐 Netlify Deploy</text>
+                
+                <text x="70" y="540" font-size="13" fill="#333">1. Sign up (use GitHub)</text>
+                <text x="70" y="565" font-size="13" fill="#333">2. Import from GitHub</text>
+                <text x="70" y="590" font-size="13" fill="#333">3. Select your repo</text>
+                <text x="70" y="615" font-size="13" fill="#333">4. Click Deploy ✓</text>
+                <text x="70" y="640" font-size="13" fill="#333">5. Wait 30 seconds ⏱️</text>
+            </g>
+
+            <!-- Benefits box -->
+            <g>
+                <rect x="650" y="500" width="250" height="160" rx="8" fill="#fff4e6" stroke="#f6c90e" stroke-width="2"/>
+                <text x="775" y="530" text-anchor="middle" font-size="16" font-weight="bold" fill="#ddb30c">✨ Benefits</text>
+                
+                <text x="670" y="560" font-size="13" fill="#333">✓ Free forever</text>
+                <text x="670" y="585" font-size="13" fill="#333">✓ Auto HTTPS</text>
+                <text x="670" y="610" font-size="13" fill="#333">✓ Auto deployments</text>
+                <text x="670" y="635" font-size="13" fill="#333">✓ Custom domain</text>
+            </g>
+
+            <!-- Timeline -->
+            <g>
+                <text x="350" y="720" text-anchor="middle" font-size="20" font-weight="bold" fill="#667eea">⏱️ Total Time: 10-15 minutes</text>
+                <text x="350" y="750" text-anchor="middle" font-size="14" fill="#666">(After initial setup: Updates deploy in 30 seconds!)</text>
+            </g>
+
+            <!-- Arrow markers -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                </marker>
+                <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#ff6b35"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+</body>
+</html>
